@@ -54,13 +54,13 @@ namespace NoGamespyVietcong
                 // spustí hru
                 if (process.Start())
                 {
-                    while (!process.MainWindowTitle.ToLower().EndsWith("vietcong") && process.MainWindowTitle.ToLower() != "vietcong")
+                    while (!process.MainWindowTitle.ToLower().EndsWith("vietcong") || process.MainWindowTitle.ToLower() == "vietcong")
                     {
                         process.Refresh();
                         Thread.Sleep(100);
                     }
 
-                    Thread.Sleep(400);
+                    Thread.Sleep(600);
 
                     Memory.InjectDllToProcess(process, injectorPath);
                     Memory.WriteObjectToAddress(process.Id, "logs.dll", 0x1890A4, selectedMaster);
