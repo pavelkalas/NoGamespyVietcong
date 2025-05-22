@@ -1,12 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
+
+/**
+ * NoGamespyVietcong v1.0
+ * by Pavel Kalaš 2025 (Floxen).
+ * -----------------------------
+ * https://github.com/pavelkalas/NoGamespyVietcong
+ */
 
 namespace NoGamespyVietcong
 {
