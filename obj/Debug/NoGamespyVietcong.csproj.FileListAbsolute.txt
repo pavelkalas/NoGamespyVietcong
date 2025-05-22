@@ -1,0 +1,10 @@
+C:\Projects\NoGamespyVietcong\obj\Debug\NoGamespyVietcong.csprojAssemblyReference.cache
+C:\Projects\NoGamespyVietcong\obj\Debug\NoGamespyVietcong.csproj.CoreCompileInputs.cache
+C:\Projects\NoGamespyVietcong\bin\Debug\vietcong.exe.config
+C:\Projects\NoGamespyVietcong\bin\Debug\vietcong.exe
+C:\Projects\NoGamespyVietcong\bin\Debug\vietcong.pdb
+C:\Projects\NoGamespyVietcong\obj\Debug\vietcong.exe
+C:\Projects\NoGamespyVietcong\obj\Debug\vietcong.pdb
+C:\Vietcong\vietcong.exe.config
+C:\Vietcong\vietcong.exe
+C:\Vietcong\vietcong.pdb
