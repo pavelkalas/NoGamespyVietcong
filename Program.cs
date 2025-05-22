@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 /**
@@ -27,6 +28,11 @@ namespace NoGamespyVietcong
         {
             if (File.Exists("logs.dll") && File.Exists("game.dll"))
             {
+                string selectedMaster = string.Empty;
+
+                // spustí task a získá nejlepší master podle jeho odezvy
+                selectedMaster = Masterserver.GetBestConnectionMaster();
+
                 // extrahuje soubor vietcong.exe z /resources/ do %TEMP% a navrátí plnou cestu k souboru
                 string vietcongPath = embedExtractor.ExtractToDirectory("vietcong.exe");
 
@@ -45,12 +51,25 @@ namespace NoGamespyVietcong
                 // spustí hru
                 if (process.Start())
                 {
-                    // počká na ukončení procesu
-                    process.WaitForExit();
+                    while (!process.MainWindowTitle.ToLower().EndsWith("vietcong") && process.MainWindowTitle.ToLower() != "vietcong")
+                    {
+                        process.Refresh();
+                        Thread.Sleep(100);
+                    }
 
-                    // uklidí po sobě extrahované soubory ve složce %TEMP%
-                    embedExtractor.DeleteExtractedFile(vietcongPath);
-                    embedExtractor.DeleteTempDirectory();
+                    Thread.Sleep(1000);
+
+                    Memory.WriteObjectToAddress(process.Id, "logs.dll", 0x1890A4, selectedMaster);
+
+                    new Thread(() =>
+                    {
+                        // počká na ukončení procesu
+                        process.WaitForExit();
+
+                        // uklidí po sobě extrahované soubory ve složce %TEMP%
+                        embedExtractor.DeleteExtractedFile(vietcongPath);
+                        embedExtractor.DeleteTempDirectory();
+                    }).Start();
                 }
             }
             else
