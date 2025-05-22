@@ -143,5 +143,26 @@ namespace NoGamespyVietcong.Src.Mem
             CloseHandle(hProcess);
             return result;
         }
+
+        /// <summary>
+        /// Injectne DLL soubor do cílového procesu.
+        /// </summary>
+        /// <param name="processHandle">Handle procesu, do kterého se má injektovat.</param>
+        /// <param name="dllPath">Absolutní cesta k DLL souboru.</param>
+        public static void InjectDllToProcess(Process processHandle, string dllPath)
+        {
+            if (processHandle != null)
+            {
+                IntPtr handle = OpenProcess(0x001F0FFF, false, processHandle.Id);
+                IntPtr LibraryAddress = GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
+                IntPtr AllocatedMemory = VirtualAllocEx(handle, IntPtr.Zero, (uint)dllPath.Length + 1, 0x00001000, 4);
+                WriteProcessMemory(handle, AllocatedMemory, Encoding.Default.GetBytes(dllPath), (uint)dllPath.Length + 1, out _);
+                IntPtr threadHandle = CreateRemoteThread(handle, IntPtr.Zero, 0, LibraryAddress, AllocatedMemory, 0, IntPtr.Zero);
+                WaitForSingleObject(handle, 500);
+                CloseHandle(threadHandle);
+                VirtualFreeEx(handle, AllocatedMemory, dllPath.Length + 1, 0x8000);
+                CloseHandle(handle);
+            }
+        }
     }
 }

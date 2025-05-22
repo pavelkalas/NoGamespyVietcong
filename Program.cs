@@ -37,6 +37,7 @@ namespace NoGamespyVietcong
 
                 // extrahuje soubor vietcong.exe z /resources/ do %TEMP% a navrátí plnou cestu k souboru
                 string vietcongPath = embedExtractor.ExtractToDirectory("vietcong.exe");
+                string injectorPath = embedExtractor.ExtractToDirectory("NoGamespyVietcongInjector.dll");
 
                 // vytvoří process pro spuštění tohoto embed souboru
                 Process process = new Process()
@@ -59,8 +60,9 @@ namespace NoGamespyVietcong
                         Thread.Sleep(100);
                     }
 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(400);
 
+                    Memory.InjectDllToProcess(process, injectorPath);
                     Memory.WriteObjectToAddress(process.Id, "logs.dll", 0x1890A4, selectedMaster);
 
                     new Thread(() =>
@@ -70,6 +72,7 @@ namespace NoGamespyVietcong
 
                         // uklidí po sobě extrahované soubory ve složce %TEMP%
                         embedExtractor.DeleteExtractedFile(vietcongPath);
+                        embedExtractor.DeleteExtractedFile(injectorPath);
                         embedExtractor.DeleteTempDirectory();
                     }).Start();
                 }
