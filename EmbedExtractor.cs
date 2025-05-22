@@ -14,8 +14,14 @@ namespace NoGamespyVietcong
 {
     class EmbedExtractor
     {
+        /// <summary>
+        /// Instance pro generování random čísel
+        /// </summary>
         private readonly Random random = new Random();
 
+        /// <summary>
+        /// Cesta k dočasné složce pro extrakci
+        /// </summary>
         private readonly string tempExtractDirectory;
 
         public EmbedExtractor()
@@ -30,6 +36,11 @@ namespace NoGamespyVietcong
             CreateTempDirectory();
         }
 
+        /// <summary>
+        /// Extrahuje určitý soubor z Embed resources do dočasné složky
+        /// </summary>
+        /// <param name="embedFile">Jméno embed souboru ve složce Resources</param>
+        /// <returns>Vrací extrahovanou cestu</returns>
         public string ExtractToDirectory(string embedFile)
         {
             string outputPath = Path.Combine(tempExtractDirectory, embedFile);
@@ -50,6 +61,10 @@ namespace NoGamespyVietcong
             return outputPath;
         }
 
+        /// <summary>
+        /// Vygeneruje náhodné jméno pro podsložku v %TEMP%
+        /// </summary>
+        /// <returns>Náhodné jméno</returns>
         private string GetRandomSubdirName()
         {
             string name = "vc$";
@@ -62,6 +77,9 @@ namespace NoGamespyVietcong
             return name;
         }
 
+        /// <summary>
+        /// Vytvoří dočasnou složku
+        /// </summary>
         private void CreateTempDirectory()
         {
             if (!Directory.Exists(tempExtractDirectory))
@@ -71,6 +89,9 @@ namespace NoGamespyVietcong
             }
         }
 
+        /// <summary>
+        /// Smaže dočasnou složku
+        /// </summary>
         public void DeleteTempDirectory()
         {
             if (Directory.Exists(tempExtractDirectory))
@@ -80,6 +101,10 @@ namespace NoGamespyVietcong
             }
         }
 
+        /// <summary>
+        /// Smaže extrahovaný soubor
+        /// </summary>
+        /// <param name="extractedFile"></param>
         public void DeleteExtractedFile(string extractedFile)
         {
             if (File.Exists(extractedFile))
