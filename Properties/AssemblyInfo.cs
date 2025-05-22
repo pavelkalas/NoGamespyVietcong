@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // sadu atributů. Změnou hodnot těchto atributů se upraví informace
 // přidružené k sestavení.
 [assembly: AssemblyTitle("NoGamespyVietcong")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Aplikace, která umožňuje zobrazovat list serverů i po pádu GameSpy tím, že do paměti při spuštění hry Injectne IP adresu funkčního masterserveru.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Pavel Kalaš")]
 [assembly: AssemblyProduct("NoGamespyVietcong")]
-[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyCopyright("Copyright © Pavel Kalaš 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

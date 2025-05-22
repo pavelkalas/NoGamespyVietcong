@@ -24,7 +24,7 @@ namespace NoGamespyVietcong.Src.MS
         private static readonly List<Master> masterList = new List<Master>()
         {
             new Master("46.28.109.117"),         // vietcong1.eu  MASTER
-            new Master("85.255.3.25"),           // alpha-team.cz MASTER
+            new Master("85.255.3.25"),           // alpha-team.cz MASTER  (může být třeba občas poklikat na Obnovit)
         };
 
         /// <summary>
