@@ -1,4 +1,4 @@
-﻿namespace NoGamespyVietcong
+﻿namespace NoGamespyVietcong.Src.MS
 {
     class Master
     {

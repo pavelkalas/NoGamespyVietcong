@@ -12,7 +12,7 @@ using System.Text;
  * https://github.com/pavelkalas/NoGamespyVietcong
  */
 
-namespace NoGamespyVietcong
+namespace NoGamespyVietcong.Src.Mem
 {
     class Memory
     {

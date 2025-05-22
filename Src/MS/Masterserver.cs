@@ -9,7 +9,7 @@ using System.Net.NetworkInformation;
  * https://github.com/pavelkalas/NoGamespyVietcong
  */
 
-namespace NoGamespyVietcong
+namespace NoGamespyVietcong.Src.MS
 {
     class Masterserver
     {
