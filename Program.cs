@@ -25,7 +25,7 @@ namespace NoGamespyVietcong
         /// <param name="args">Spouštěcí argumenty</param>
         static void Main(string[] args)
         {
-            if (Directory.Exists("logs.dll") && Directory.Exists("game.dll"))
+            if (File.Exists("logs.dll") && File.Exists("game.dll"))
             {
                 // extrahuje soubor vietcong.exe z /resources/ do %TEMP% a navrátí plnou cestu k souboru
                 string vietcongPath = embedExtractor.ExtractToDirectory("vietcong.exe");
