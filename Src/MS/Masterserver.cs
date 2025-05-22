@@ -23,8 +23,8 @@ namespace NoGamespyVietcong.Src.MS
         /// </summary>
         private static readonly List<Master> masterList = new List<Master>()
         {
-            new Master("46.28.109.117"),         // vietcong1.eu  MASTER
-            new Master("85.255.3.25"),           // alpha-team.cz MASTER  (může být třeba občas poklikat na Obnovit)
+            new Master("46.28.109.117"),       // vietcong1.eu  MASTER
+            // new Master("xxx.xxx.xxx.xxx"),  // zde můžete přidat další master servery, může se jednat i o doménu, nemusí se přidávat nutně IP adresa
         };
 
         /// <summary>
