@@ -63,7 +63,7 @@ namespace NoGamespyVietcong
                         Thread.Sleep(100);
                     }
 
-                    Thread.Sleep(600);
+                    Thread.Sleep(400);
 
                     Memory.InjectDllToProcess(process, injectorPath);
                     Memory.WriteObjectToAddress(process.Id, "logs.dll", 0x1890A4, selectedMaster);

@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
-    <Content Include="Resources\NoGamespyVietcongInjector.dll" />
     <EmbeddedResource Include="Resources\NoGamespyVietcongInjector.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
