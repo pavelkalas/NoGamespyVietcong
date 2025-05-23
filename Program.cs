@@ -1,4 +1,5 @@
-﻿using NoGamespyVietcong.Src.Mem;
+﻿using NoGamespyVietcong.Src;
+using NoGamespyVietcong.Src.Mem;
 using NoGamespyVietcong.Src.MS;
 using System;
 using System.Diagnostics;
@@ -51,6 +52,8 @@ namespace NoGamespyVietcong
                     }
                 };
 
+                Firewall.AddFirewallRule("Vietcong in path vc$" + embedExtractor.randomSeedNumber, vietcongPath);
+
                 // spustí hru
                 if (process.Start())
                 {
@@ -74,6 +77,8 @@ namespace NoGamespyVietcong
                         embedExtractor.DeleteExtractedFile(vietcongPath);
                         embedExtractor.DeleteExtractedFile(injectorPath);
                         embedExtractor.DeleteTempDirectory();
+
+                        Firewall.RemoveFirewallRule("Vietcong in path vc$" + embedExtractor.randomSeedNumber);
                     }).Start();
                 }
             }

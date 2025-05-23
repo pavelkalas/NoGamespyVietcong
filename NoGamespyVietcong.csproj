@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmbedExtractor.cs" />
+    <Compile Include="Src\Firewall.cs" />
     <Compile Include="Src\MS\Master.cs" />
     <Compile Include="Src\MS\Masterserver.cs" />
     <Compile Include="Src\Mem\Memory.cs" />

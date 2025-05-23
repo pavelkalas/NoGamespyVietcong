@@ -24,9 +24,11 @@ namespace NoGamespyVietcong
         /// </summary>
         private readonly string tempExtractDirectory;
 
+        public readonly string randomSeedNumber;
+
         public EmbedExtractor()
         {
-            tempExtractDirectory = Path.GetTempPath() + GetRandomSubdirName();
+            tempExtractDirectory = Path.GetTempPath() + GetRandomSubdirName(ref randomSeedNumber);
 
             while (Directory.Exists(tempExtractDirectory))
             {
@@ -65,13 +67,15 @@ namespace NoGamespyVietcong
         /// Vygeneruje náhodné jméno pro podsložku v %TEMP%
         /// </summary>
         /// <returns>Náhodné jméno</returns>
-        private string GetRandomSubdirName()
+        private string GetRandomSubdirName(ref string randomSeedNumber)
         {
             string name = "vc$";
 
             for (int i = 0; i < 5; i++)
             {
-                name += random.Next(1000, 9999).ToString();
+                string nums = random.Next(1000, 9999).ToString();
+                randomSeedNumber += nums;
+                name += nums;
             }
 
             return name;
