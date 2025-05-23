@@ -1,5 +1,12 @@
 ﻿using System.Diagnostics;
 
+/**
+ * NoGamespyVietcong v1.0
+ * by Pavel Kalaš 2025 (Floxen).
+ * -----------------------------
+ * https://github.com/pavelkalas/NoGamespyVietcong
+ */
+
 namespace NoGamespyVietcong.Src
 {
     class Firewall
